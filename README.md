@@ -21,4 +21,5 @@ npx sequelize-cli model:generate --name Trainer --attributes username:string,pas
 # Plan: Update pokemon model and create migration script
 npx sequelize-cli migration:generate --name update-pokemon-with-trainer
 npx sequelize db:migrate
+npx sequelize-cli migration:generate --name update-pokemon-with-trainer-fk
 ```

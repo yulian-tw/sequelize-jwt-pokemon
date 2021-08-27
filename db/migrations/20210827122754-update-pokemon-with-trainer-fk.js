@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -8,7 +8,17 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    await queryInterface.addColumn("Pokemons", "trainerId", Sequelize.INTEGER);
+    queryInterface.addConstraint('Pokemons', {
+      fields: ['trainerId'],
+      type: 'foreign key',
+      name: 'Pokemons_trainerId_fkey',
+      references: { //Required field
+        table: 'Trainers',
+        field: 'id'
+      },
+      onDelete: 'no action',
+      onUpdate: 'cascade'
+    });
   },
 
   down: async (queryInterface, Sequelize) => {
@@ -18,6 +28,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.removeColumn("Pokemons", "trainerId");
+    queryInterface.addConstraint('Pokemons', 'Pokemons_trainerId_fkey');
   }
 };
