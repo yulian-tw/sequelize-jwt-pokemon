@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Pokemons', {
+    await queryInterface.createTable("Pokemons", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,16 +11,16 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true,
+        unique: true
       },
       japaneseName: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING
       },
       baseHp: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       },
       category: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -33,6 +33,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Pokemons');
+    await queryInterface.dropTable("Pokemons");
   }
 };

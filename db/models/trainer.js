@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 const {
   Model
-} = require('sequelize');
+} = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Trainer extends Model {
     /**
@@ -9,26 +9,26 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
+    static associate (models) {
       // define association here
       Trainer.hasMany(models.Pokemon, {
-        foreignKey: { name: "trainerId" },
+        foreignKey: { name: "trainerId" }
       });
     }
   };
   Trainer.init({
     username: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allowNull: false, // here
-      unique: true,
+      unique: true
     },
     password: {
-      type: Sequelize.STRING,
-      allowNull: false, // here
+      type: DataTypes.STRING,
+      allowNull: false // here
     }
   }, {
     sequelize,
-    modelName: 'Trainer',
+    modelName: "Trainer"
   });
   return Trainer;
 };
