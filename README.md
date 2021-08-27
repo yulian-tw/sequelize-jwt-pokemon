@@ -9,4 +9,6 @@ npx sequelize db:create
 npx sequelize init:migrations
 npx sequelize init:models
 npx sequelize model:generate --name Pokemon --attributes name:string
+## update model and migration scripts
+npx sequelize db:migrate
 ```
