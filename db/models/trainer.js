@@ -14,8 +14,15 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Trainer.init({
-    username: DataTypes.STRING,
-    password: DataTypes.STRING
+    username: {
+      type: Sequelize.STRING,
+      allowNull: false, // here
+      unique: true,
+    },
+    password: {
+      type: Sequelize.STRING,
+      allowNull: false, // here
+    }
   }, {
     sequelize,
     modelName: 'Trainer',
