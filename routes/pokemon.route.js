@@ -23,13 +23,35 @@ router.get("/:id", async (req, res, next) => {
 });
 
 // POST
-router.post("/", async (req, res, next) => {
+router.post("/create", async (req, res, next) => {
     try {
         const pokemon = req.body;
 
         const newPokemon = await db.Pokemon.create(pokemon);
         res.status(201).json(newPokemon);
     } catch (error) {
+        console.log(error);
+        next(error);
+    }
+});
+router.post("/update/:id", async (req, res, next) => {
+    try {
+        const pokemon = req.body;
+
+        const [numberOfUpdatedRecords, updatedPokemons] = await db.Pokemon.update(pokemon, {
+            where: {
+                id: req.params.id
+            },
+            returning: true // This will return updated result
+        });
+
+        const returnObj = {
+            message: `${numberOfUpdatedRecords} records updated.`,
+            updatedPokemons
+        }
+        res.status(200).json(returnObj);
+    } catch (error) {
+        console.log(error);
         next(error);
     }
 });
