@@ -8,7 +8,7 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    queryInterface.addConstraint('Pokemons', {
+    await queryInterface.addConstraint('Pokemons', {
       fields: ['trainerId'],
       type: 'foreign key',
       name: 'Pokemons_trainerId_fkey',
@@ -28,6 +28,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    queryInterface.removeConstraint('Pokemons', 'Pokemons_trainerId_fkey');
+    await queryInterface.removeConstraint('Pokemons', 'Pokemons_trainerId_fkey');
   }
 };
