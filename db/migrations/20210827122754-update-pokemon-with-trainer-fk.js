@@ -28,6 +28,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    queryInterface.addConstraint('Pokemons', 'Pokemons_trainerId_fkey');
+    queryInterface.removeConstraint('Pokemons', 'Pokemons_trainerId_fkey');
   }
 };
