@@ -9,7 +9,18 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
+      },
+      japaneseName: {
+        type: Sequelize.STRING,
+      },
+      baseHp: {
+        type: Sequelize.INTEGER,
+      },
+      category: {
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
